@@ -78,7 +78,7 @@ def handle_logRequest_toURL_withMethod_withMessageClassString_parsingStandaloneM
 
 
 def handle_logPartialRequestObjectData_(metadata: str, payload: bytes):
-    print('request')
+    print('📱➡️ ☁️')
     print(payload)
 
 
@@ -98,7 +98,7 @@ def handle_logResponseConfiguration_withMessageClassString_(metadata: str, paylo
 
 
 def handle_logPartialResponseObjectData_(metadata: str, payload: bytes):
-    print('response')
+    print('📱⬅️️ ☁️')
     print(payload)
 
 
