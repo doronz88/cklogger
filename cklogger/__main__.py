@@ -130,22 +130,6 @@ def cli():
 
         handlers[type_](metadata, payload)
 
-        # type_:
-        # 1 - [CKDTrafficLogger logRequest:toURL:withMethod:withMessageClassString:parsingStandaloneMessage:]
-        # 2 - [CKDTrafficLogger logResponse:]
-        # 3 - [CKDTrafficLogger logPartialRequestObjectData:]
-        # 4 - [CKDTrafficLogger logResponseConfiguration:withMessageClassString:]
-        # 5 - [CKDTrafficLogger logPartialResponseObjectData:]
-
-        # logger.debug(f'{type_} {request_id} {sequence_number}')
-        #
-        # try:
-        #     logger.info(f'{type_} {request_id} {sequence_number}: {pprint.pformat(archiver.unarchive(payload))}')
-        # except plistlib.InvalidFileException:
-        #
-        #     logger.info(f'RAW DATA: {payload}')
-        #     logger.info(plistlib.loads(payload))
-
 
 if __name__ == '__main__':
     cli()
