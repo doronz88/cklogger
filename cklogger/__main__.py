@@ -9,6 +9,7 @@ import click
 import coloredlogs
 from bpylist2 import archiver
 from bpylist2.archive_types import DataclassArchiver
+from pymobiledevice3.cli.cli_common import Command
 from pymobiledevice3.lockdown import LockdownClient
 from pymobiledevice3.services.os_trace import OsTraceService
 
@@ -107,10 +108,8 @@ def handle_finishRequestLog_(metadata: str, payload: bytes):
     pass
 
 
-@click.command()
-def cli():
-    lockdown = LockdownClient()
-
+@click.command(cls=Command)
+def cli(lockdown: LockdownClient):
     for entry in OsTraceService(lockdown).syslog():
         if entry.label is None or entry.label.subsystem != 'com.apple.cloudkit' or \
                 entry.label.category != 'TrafficBinary':
