@@ -10,7 +10,7 @@ import coloredlogs
 from bpylist2 import archiver
 from bpylist2.archive_types import DataclassArchiver
 from pymobiledevice3.cli.cli_common import Command
-from pymobiledevice3.lockdown import LockdownClient
+from pymobiledevice3.lockdown_service_provider import LockdownServiceProvider
 from pymobiledevice3.services.os_trace import OsTraceService
 
 coloredlogs.install(level=logging.DEBUG)
@@ -109,8 +109,8 @@ def handle_finishRequestLog_(metadata: str, payload: bytes):
 
 
 @click.command(cls=Command)
-def cli(lockdown: LockdownClient):
-    for entry in OsTraceService(lockdown).syslog():
+def cli(service_provider: LockdownServiceProvider):
+    for entry in OsTraceService(service_provider).syslog():
         if entry.label is None or entry.label.subsystem != 'com.apple.cloudkit' or \
                 entry.label.category != 'TrafficBinary':
             continue
