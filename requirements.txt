@@ -1,5 +1,5 @@
 click
-pymobiledevice3>=1.29.1
+pymobiledevice3>=2.1.0
 pygments
 bpylist2
 coloredlogs
